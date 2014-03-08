@@ -5,6 +5,7 @@ import "github.com/willf/bloom"
 
 // BCount is a distict value counter that uses a bloom filter internally.
 // It uses constant space in memory regardless of number of items counted.
+// Mehtods of this struct are not goroutine-safe.
 type BCount struct {
 	filter *bloom.BloomFilter
 	count  uint64
