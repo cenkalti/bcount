@@ -1,11 +1,10 @@
+// Package bcount implements a counter for counting distinct values.
 package bcount
 
-import (
-	"github.com/willf/bloom"
-)
+import "github.com/willf/bloom"
 
-// BCount is a distict value counter that uses a bloom filter underneath.
-// It uses a constant amount of space regardless of the items added.
+// BCount is a distict value counter that uses a bloom filter internally.
+// It uses constant space in memory regardless of number of items counted.
 type BCount struct {
 	filter *bloom.BloomFilter
 	count  uint64
