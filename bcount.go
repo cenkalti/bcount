@@ -18,7 +18,7 @@ func New(n uint, fp float64) *BCount {
 	}
 }
 
-// Add adds data to to counter. The count will only be incremented if the data
+// Add item to counter. The count will only be incremented if the data
 // is not added before.
 func (c *BCount) Add(data []byte) {
 	if !c.filter.TestAndAdd(data) {
@@ -26,17 +26,17 @@ func (c *BCount) Add(data []byte) {
 	}
 }
 
-// Count returns the count of distinct items.
+// Count returns the number of distinct items added to counter via Add().
 func (c *BCount) Count() uint64 {
 	return c.count
 }
 
-// Cap returns the capacity of a Bloom filter.
+// Cap returns the capacity of the internal bloom filter.
 func (c *BCount) Cap() uint {
 	return c.filter.Cap()
 }
 
-// Clear clears all the data in a Bloom filter, removing all keys.
+// Reset clears all the data in a Bloom filter and resets the count to zero.
 func (c *BCount) Reset() {
 	c.count = 0
 	c.filter.ClearAll()
