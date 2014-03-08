@@ -37,6 +37,7 @@ func (c *BCount) Cap() uint {
 }
 
 // Clear clears all the data in a Bloom filter, removing all keys.
-func (c *BCount) Clear() {
+func (c *BCount) Reset() {
+	c.count = 0
 	c.filter.ClearAll()
 }
