@@ -1,4 +1,9 @@
 // Package bcount implements a counter for counting distinct values.
+//
+// As an alternative to approach, you can use HyperLogLog algorithm:
+// 	https://github.com/avisagie/gohll
+//	https://github.com/eclesh/hyperloglog
+//	https://github.com/dustin/go-probably
 package bcount
 
 import "github.com/willf/bloom"
