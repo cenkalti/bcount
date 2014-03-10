@@ -13,6 +13,7 @@ func ExampleBCount() {
 	counter.Add([]byte("foo"))
 	counter.Add([]byte("bar"))
 	counter.Add([]byte("baz"))
+	counter.Add([]byte("baz")) // Same item (won't increment the counter)
 
 	// Get the counter value
 	fmt.Println(counter.Count())
